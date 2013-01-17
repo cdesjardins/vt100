@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-I/usr/X11R6/include
+CFLAGS=-I/usr/X11R6/include -D_GNU_SOURCE
 LDFLAGS=-L/usr/X11R6/lib -Wall -lX11 -lutil -ggdb
 
 OBJS=main.o vt100.o async.o

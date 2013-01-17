@@ -11,21 +11,26 @@
 #include "async.h"
 #include "main.h"
 
-
 int timer = 0;
 
-void sig_child(int sig) {
- exit(1);
+void sig_child(int sig)
+{
+    exit(1);
 }
 
-void sig_alarm(int sig) {
- timer++;
- if((timer % 10) == 0) 
-  cursor^=1;
- d_drawscreen();
+void sig_alarm(int sig)
+{
+    timer++;
+    if ((timer % 10) == 0)
+    {
+        cursor ^= 1;
+    }
+    d_drawscreen();
 }
 
-void callback(char c, struct term_t *win) {
- cursor = 1;
- write(master, &c, 1);
+void callback(char c, struct term_t *win)
+{
+    cursor = 1;
+    write(master, &c, 1);
 }
+
